@@ -32,6 +32,9 @@ ARG ENABLE_CONTRIB=1
 # Builds on latest commit of each submodule, uncomment only when building on stable release of submodules fails
 #ARG ENABLE_ROLLING=1
 
+# This value is dependent on GPU model and should be modified if different
+ARG CUDA_ARCH_BIN=7.5
+
 # Arguments for cmake, used by `pip wheel`
 ARG AMAKE_ARGS="-DCMAKE_BUILD_TYPE=RELEASE \
     -DCMAKE_INSTALL_PREFIX=/usr/local \
@@ -43,7 +46,7 @@ ARG AMAKE_ARGS="-DCMAKE_BUILD_TYPE=RELEASE \
     -DOPENCV_DNN_CUDA=ON \
     -DENABLE_FAST_MATH=1 \
     -DCUDA_FAST_MATH=1 \
-    -DCUDA_ARCH_BIN=7.5 \
+    -DCUDA_ARCH_BIN=${CUDA_ARCH_BIN} \
     -DWITH_CUBLAS=1 \
     -DOPENCV_EXTRA_MODULES_PATH=/opencv-python/opencv_contrib/modules \
     -DHAVE_opencv_python3=ON \
