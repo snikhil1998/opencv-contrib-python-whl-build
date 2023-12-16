@@ -21,7 +21,7 @@ RUN TAG=$(curl -s https://api.github.com/repos/opencv/opencv-python/releases | j
 WORKDIR /opencv-python/opencv/build
 
 # For verbose output during build
-ARG VERBOSE=1
+#ARG VERBOSE=1
 
 # Enables CUDA and cuDNN support
 ARG ENABLE_CONTRIB=1
